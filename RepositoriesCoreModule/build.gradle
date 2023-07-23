@@ -1,0 +1,21 @@
+plugins {
+    id 'java-library'
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+
+
+dependencies {
+    def jUnitVersion = "4.13.2"
+    def coroutinesVersion = "1.4.2"
+    // Required -- JUnit 4 framework
+    testImplementation "junit:junit:$jUnitVersion"
+
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
+}
