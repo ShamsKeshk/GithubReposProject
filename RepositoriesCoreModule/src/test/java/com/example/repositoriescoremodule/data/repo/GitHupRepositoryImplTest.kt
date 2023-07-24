@@ -1,7 +1,7 @@
 package com.example.repositoriescoremodule.data.repo
 
-import com.example.repositoriescoremodule.data.local.FakeLocalGitHupRepositoryImpl
-import com.example.repositoriescoremodule.data.remote.FakeRemoteGitHupRepositoryImpl
+import com.example.repositoriescoremodule.data.local.FakeLocalGitHupDatasourceImpl
+import com.example.repositoriescoremodule.data.remote.FakeRemoteGitHupDatasourceImpl
 import com.example.repositoriescoremodule.domain.repositories.GitHupRepository
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.assertEquals
@@ -12,15 +12,15 @@ import org.junit.Test
 
 internal class GitHupRepositoryImplTest {
 
-    private lateinit var fakeLocalGitHupRepositoryImpl: FakeLocalGitHupRepositoryImpl
-    private lateinit var fakeRemoteGitHupRepositoryImpl: FakeRemoteGitHupRepositoryImpl
+    private lateinit var fakeLocalGitHupRepositoryImpl: FakeLocalGitHupDatasourceImpl
+    private lateinit var fakeRemoteGitHupRepositoryImpl: FakeRemoteGitHupDatasourceImpl
 
     private lateinit var gitHubGitHupRepository: GitHupRepository
 
     @Before
     fun initModels(){
-        fakeLocalGitHupRepositoryImpl = FakeLocalGitHupRepositoryImpl()
-        fakeRemoteGitHupRepositoryImpl = FakeRemoteGitHupRepositoryImpl()
+        fakeLocalGitHupRepositoryImpl = FakeLocalGitHupDatasourceImpl()
+        fakeRemoteGitHupRepositoryImpl = FakeRemoteGitHupDatasourceImpl()
 
         gitHubGitHupRepository = GitHupRepositoryImpl(fakeRemoteGitHupRepositoryImpl,fakeLocalGitHupRepositoryImpl)
     }

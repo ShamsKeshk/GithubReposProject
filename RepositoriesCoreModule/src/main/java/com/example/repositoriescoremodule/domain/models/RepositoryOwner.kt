@@ -1,3 +1,4 @@
 package com.example.repositoriescoremodule.domain.models
 
-data class RepositoryOwner(val name: String)
+data class RepositoryOwner(val id: Int,
+                           val name: String)

@@ -33,7 +33,7 @@ ext {
     truthVersion = '0.44'
     junitVersion = '4.13.2'
     androidXTestCoreVersion = '1.5.0'
-    robolectricVersion = '4.8'
+    robolectricVersion = '4.10.3'
     androidXTestExtKotlinRunnerVersion = '1.1.4'
     archTestingVersion = '2.1.0'
 

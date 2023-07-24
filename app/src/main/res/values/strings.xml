@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Githup Repo</string>
+    <string name="str_network_no_internet_connection">No Internet Connection</string>
 </resources>

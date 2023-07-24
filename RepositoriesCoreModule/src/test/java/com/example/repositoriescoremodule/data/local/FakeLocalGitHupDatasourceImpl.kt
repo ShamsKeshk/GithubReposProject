@@ -2,7 +2,7 @@ package com.example.repositoriescoremodule.data.local
 
 import com.example.repositoriescoremodule.domain.models.GitHupRepositoryModel
 
-internal class FakeLocalGitHupRepositoryImpl: LocalGitHupRepository {
+internal class FakeLocalGitHupDatasourceImpl: LocalGitHupDatasource {
 
     private val gitHupRepositories = mutableListOf<GitHupRepositoryModel>()
 
@@ -11,8 +11,12 @@ internal class FakeLocalGitHupRepositoryImpl: LocalGitHupRepository {
     }
 
     override suspend fun insertRepositories(repositories: List<GitHupRepositoryModel>) {
-        gitHupRepositories.clear()
+        deleteCache()
         gitHupRepositories.addAll(repositories)
+    }
+
+    override suspend fun deleteCache() {
+        gitHupRepositories.clear()
     }
 
     fun removeCachedRepo(gitHupRepositoryModel: GitHupRepositoryModel) {
