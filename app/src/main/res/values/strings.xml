@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Githup Repo</string>
     <string name="str_network_no_internet_connection">No Internet Connection</string>
+
+    <string name="repo_language_python">Python</string>
+    <string name="repo_rate_dummy">110</string>
 </resources>

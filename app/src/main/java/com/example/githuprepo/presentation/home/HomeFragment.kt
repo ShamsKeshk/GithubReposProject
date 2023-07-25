@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.example.githuprepo.R
 import com.example.githuprepo.databinding.FragmentHomeBinding
+import com.example.githuprepo.databinding.RepoListItemBinding
 import com.example.githuprepo.presentation.model.getData
 import com.example.githuprepo.presentation.model.getError
 import com.example.githuprepo.presentation.viewmodel.RepositoriesViewModel
@@ -28,6 +29,8 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
 
+    private lateinit var repositoriesAdapter: RepositoriesAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,22 +38,29 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+        repositoriesAdapter = RepositoriesAdapter()
+
+        binding.rvRepositories.adapter = repositoriesAdapter
+
+        observeOnGitHupRepositories()
+
         return binding.root
     }
 
     private fun observeOnGitHupRepositories(){
-        viewModel.repositoriesLiveData().observe(viewLifecycleOwner, Observer {
-            if (it.isLoading()){
-                Toast.makeText(requireContext(),"Loading", Toast.LENGTH_LONG).show()
-            }else if (it.isSuccessful()){
-                Toast.makeText(requireContext(),"Successful", Toast.LENGTH_LONG).show()
-                it.getData()?.forEach {
-                    Toast.makeText(requireContext(),"Data ${it.name}", Toast.LENGTH_LONG).show()
-                }
-            }else if (it.isFailed()){
-                Toast.makeText(requireContext(),"Data ${it.getError()?.message}", Toast.LENGTH_LONG).show()
+        viewModel.repositoriesLiveData().observe(viewLifecycleOwner) { result ->
+            if (result.isLoading()) {
+                Toast.makeText(requireContext(), "Loading", Toast.LENGTH_LONG).show()
+            } else if (result.isSuccessful()) {
+                repositoriesAdapter.submitList(result.getData())
+            } else if (result.isFailed()) {
+                Toast.makeText(
+                    requireContext(),
+                    "Data ${result.getError()?.message}",
+                    Toast.LENGTH_LONG
+                ).show()
             }
-        })
+        }
 
     }
 

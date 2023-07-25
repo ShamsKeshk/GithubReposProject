@@ -7,4 +7,6 @@ data class GitHupRepositoryModel(
     val language: String? = null,
     val stars: Int = 0,
     val repositoryOwner: RepositoryOwner) {
+
+    fun startAsString() = stars.toString()
 }

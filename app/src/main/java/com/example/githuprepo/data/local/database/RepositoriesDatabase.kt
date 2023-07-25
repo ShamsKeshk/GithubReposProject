@@ -9,7 +9,7 @@ import com.example.githuprepo.data.local.convertors.RepositoryModelConvertor
 import com.example.githuprepo.data.local.model.RepositoryModelEntity
 
 
-@Database(entities = [RepositoryModelEntity::class], version = 1, exportSchema = false)
+@Database(entities = [RepositoryModelEntity::class], version = 2, exportSchema = false)
 @TypeConverters(RepositoryModelConvertor::class)
 abstract class RepositoriesDatabase: RoomDatabase() {
 
