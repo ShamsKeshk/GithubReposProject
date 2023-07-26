@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="iv_repo_bottom_bar_icon_size">14dp</dimen>
+
+    <dimen name="default_margin">8dp</dimen>
+    <dimen name="default_margin_16">16dp</dimen>
+
+    <dimen name="default_padding">16dp</dimen>
+
+    <dimen name="default_labels_starting_margin">16dp</dimen>
+    <dimen name="default_labels_bottom_margin">4dp</dimen>
+
+    <dimen name="default_card_corner_radius">8dp</dimen>
+    <dimen name="default_card_elevation">8dp</dimen>
+    <dimen name="default_button_elevation">8dp</dimen>
+
+    <dimen name="default_recycler_item_margin_vertical">5dp</dimen>
+
+    <dimen name="repo_owner_avatar_size">66dp</dimen>
+
+
+    <dimen name="default_secondary_text_size">13sp</dimen>
+    <dimen name="default_primary_text_size">16sp</dimen>
+
+    <dimen name="shimmer_secondary_label_min_width">50dp</dimen>
+    <dimen name="shimmer_primary_label_min_width">80dp</dimen>
+
+    <dimen name="default_button_stroke_width">2dp</dimen>
+
+    <dimen name="default_profile_avatar_stroke_width">3dp</dimen>
+    <dimen name="default_profile_avatar_padding">3dp</dimen>
+</resources>

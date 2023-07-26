@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/default_card_corner_radius"
+        android:layout_marginVertical="@dimen/default_recycler_item_margin_vertical"
+        app:cardElevation="@dimen/default_card_elevation">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_padding">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_owner_profile_image"
+                android:layout_width="@dimen/repo_owner_avatar_size"
+                android:layout_height="@dimen/repo_owner_avatar_size"
+                app:layout_constraintBottom_toTopOf="@+id/tv_repo_description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/shimmer_avatar_profile_image_style"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                tools:src="@mipmap/ic_launcher" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_owner_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/shimmer_secondary_label_min_width"
+                android:layout_marginStart="@dimen/default_labels_starting_margin"
+                android:layout_marginBottom="@dimen/default_labels_bottom_margin"
+                style="@style/shimmer_secondary_text_style"
+                app:layout_constraintBottom_toTopOf="@+id/tv_repo_name"
+                app:layout_constraintStart_toEndOf="@+id/iv_owner_profile_image"
+                app:layout_constraintTop_toTopOf="@+id/iv_owner_profile_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                tools:text="name" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_repo_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/shimmer_primary_label_min_width"
+                style="@style/shimmer_primary_text_style"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_owner_profile_image"
+                app:layout_constraintStart_toStartOf="@+id/tv_owner_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_owner_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                tools:text="repo name" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_repo_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_16"
+                android:maxLines="6"
+                android:ellipsize="end"
+                style="@style/shimmer_secondary_text_style"
+                app:layout_constraintStart_toStartOf="@+id/tv_owner_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_repo_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                tools:text="repo description" />
+
+            <include
+                android:id="@+id/cl_language_layout"
+                layout="@layout/repo_bottom_info_symbol_bar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_16"
+                app:drawableRes="@{@drawable/ic_repo_language_bottom_bar}"
+                android:background="@color/shimmer_child_items_background"
+                android:layout_marginEnd="@dimen/default_margin_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_owner_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_repo_description"
+                app:layout_constraintEnd_toStartOf="@+id/repo_bottom_info_symbol_bar" />
+
+            <include
+                layout="@layout/repo_bottom_info_symbol_bar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:drawableRes="@{@drawable/ic_start_rate_active}"
+                android:background="@color/shimmer_child_items_background"
+                app:layout_constraintBottom_toBottomOf="@+id/cl_language_layout"
+                app:layout_constraintStart_toEndOf="@+id/cl_language_layout"
+                app:layout_constraintTop_toTopOf="@+id/cl_language_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+</layout>
