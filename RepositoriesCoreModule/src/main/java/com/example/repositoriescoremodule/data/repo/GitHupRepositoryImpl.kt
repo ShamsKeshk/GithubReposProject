@@ -19,7 +19,7 @@ class GitHupRepositoryImpl(private val remoteGitHupDatasource: RemoteGitHupDatas
             localGitHupDatasource.deleteCache()
         }
 
-        val remoteData = remoteGitHupDatasource.fetchRepositories()
+        val remoteData = remoteGitHupDatasource.fetchRepositories(filterCriteria)
 
         localGitHupDatasource.insertRepositories(remoteData)
 
