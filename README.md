@@ -1,6 +1,6 @@
-# GitHup Repositories Android Project-
+# GitHub Repositories Android Project-
 
-### An application that connect to GitHup server to list Repositories based on Filter Criteria .
+### An application that connect to GitHub server to list Repositories based on Filter Criteria .
 #### We Applying Caching layer to secure user network quota, and force refresh data when user swipe to refresh, and later we can add more Caching Strategies.
 #### The App is Supporting Night mode.
 
