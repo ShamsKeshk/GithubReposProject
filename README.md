@@ -28,3 +28,12 @@
 #### compileOptions :
 - JDK 17
 - coreLibraryDesugaring ENABLED.
+
+#### Screenshots :
+- ![](https://github.com/ShamsKeshk/GithubReposProject/blob/master/screenshots/1-repo_light_mode.png)
+- ![](https://github.com/ShamsKeshk/GithubReposProject/blob/master/screenshots/2-repo_light_mode_shimmer.png)
+- ![](https://github.com/ShamsKeshk/GithubReposProject/blob/master/screenshots/3-repo_light_mode_error.png)
+- ![](https://github.com/ShamsKeshk/GithubReposProject/blob/master/screenshots/4-repo_night_mode.png)
+- ![](https://github.com/ShamsKeshk/GithubReposProject/blob/master/screenshots/5-repo_light_mode_force_refresh.png)
+- ![](https://github.com/ShamsKeshk/GithubReposProject/blob/master/screenshots/6-repo_night_mode_shimmer.png)
+- ![](https://github.com/ShamsKeshk/GithubReposProject/blob/master/screenshots/7-repo_noght_mode_error.png)
