@@ -15,6 +15,9 @@ class GitHupRepositoryImpl(private val remoteGitHupDatasource: RemoteGitHupDatas
 
         if (!cachedData.isNullOrEmpty() && !isForceFetch)
             return cachedData
+        else if (!cachedData.isNullOrEmpty()){
+            localGitHupDatasource.deleteCache()
+        }
 
         val remoteData = remoteGitHupDatasource.fetchRepositories()
 

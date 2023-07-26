@@ -37,6 +37,7 @@ class HomeFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.viewModel = viewModel
 
         repositoriesAdapter = RepositoriesAdapter()
 
@@ -44,21 +45,33 @@ class HomeFragment : Fragment() {
 
         observeOnGitHupRepositories()
 
+        listenToSwipeToRefreshToForceLoad()
+
         return binding.root
+    }
+
+    private fun listenToSwipeToRefreshToForceLoad(){
+        binding.swipeToRefreshRepositories.setOnRefreshListener {
+            viewModel.syncRepositories(true)
+
+            binding.swipeToRefreshRepositories.isRefreshing = false
+        }
     }
 
     private fun observeOnGitHupRepositories(){
         viewModel.repositoriesLiveData().observe(viewLifecycleOwner) { result ->
+            if (result == null)
+                return@observe
+
+            binding.result = result
+
             if (result.isLoading()) {
-                Toast.makeText(requireContext(), "Loading", Toast.LENGTH_LONG).show()
+                binding.shimmerViewContainer.shimmerViewContainer.startShimmer()
             } else if (result.isSuccessful()) {
+                binding.shimmerViewContainer.shimmerViewContainer.stopShimmer()
                 repositoriesAdapter.submitList(result.getData())
             } else if (result.isFailed()) {
-                Toast.makeText(
-                    requireContext(),
-                    "Data ${result.getError()?.message}",
-                    Toast.LENGTH_LONG
-                ).show()
+                binding.shimmerViewContainer.shimmerViewContainer.stopShimmer()
             }
         }
 

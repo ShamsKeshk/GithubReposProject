@@ -29,7 +29,8 @@ class RepositoriesViewModel @Inject constructor(
     }
 
 
-    fun syncRepositories(){
+    @JvmOverloads
+    fun syncRepositories(isForceFetch: Boolean = false){
         _liveData.value = Result.Loading
 
         CoroutineScope(Dispatchers.IO).launch {
@@ -37,7 +38,7 @@ class RepositoriesViewModel @Inject constructor(
                 val filterCriteria = FilterCriteria(RepoSearchCriteria.LANGUAGE.value,
                     RepoSortCriteria.STARS.value)
 
-               val data = getRepositoriesUseCase.invoke(false, filterCriteria)
+               val data = getRepositoriesUseCase.invoke(isForceFetch, filterCriteria)
 
                 _liveData.postValue(Result.Success(data))
             }catch (e: Exception){

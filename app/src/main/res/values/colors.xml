@@ -16,4 +16,6 @@
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#757575</color>
 
+    <color name="shimmer_child_items_background">#B3B3B3</color>
+
 </resources>
